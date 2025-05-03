@@ -1,0 +1,101 @@
+body {
+  margin: 0;
+padding: 0;
+background-image: url('dronningstien.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  min-height: 100vh;
+  font-family: 'Bebas Neue', sans-serif;
+}
+
+
+header {
+    background-color: #2F5327;
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+.logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0 5px;
+}
+.Header-logo {
+  width: 100px;
+  height: auto;
+}
+.nav-button {
+  display: flex;
+  gap: 15px;
+  }
+  .button-list button {
+    font-family: 'Bebas Neue', sans-serif; }
+
+.nav-menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.nav-button, .btn-jacket, .shop-button {
+  display: inline-block;
+  padding: 10px 24px;
+  border-radius: 100px;
+  color: wheat;
+  font-weight: bold;
+  text-decoration: none;
+  background: #2F5327
+}
+.nav-button:hover {
+ transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+.nav-left {
+  display: flex;
+}
+.btn-jacket{
+  display: none;
+ 
+}
+.btn-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 20px;
+  width: 100%;
+  
+}
+@media (min-width: 768px) { /* Fixed syntax */
+  body {
+
+    background-image: url('Foss.jpg');
+    background-size: 150% auto;
+    background-position: 60% center;
+  
+  }
+  .btn-jacket {
+        display: inline-block;
+
+  }
+  .shop-button {
+    display: none;
+
+  }
+}
+@media (min-width: 1200px) {
+  body {
+    background-size: cover; }
+}
+h1 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2.5rem;
+  
+  color: #F8E6BF;
+  text-align: center;
+  margin-top: 220px;
+}
