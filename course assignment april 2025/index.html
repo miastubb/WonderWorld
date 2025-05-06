@@ -12,19 +12,28 @@
       href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Dancing+Script:wght@400..700&family=Henny+Penny&display=swap"
       rel="stylesheet"
     />
+    <script
+      src="https://kit.fontawesome.com/2b52de5af1.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body>
-    <header>
+    <header class="site-header">
+      <div class="nav-left">
+        <a href="shop" class="nav-button">Shop</a>
+        <a href="outlet" class="nav-button">Outlet</a>
+      </div>
       <div class="logo-container">
         <img src="RainyDays_Logo2.png" alt="Rainy Days" class="Header-logo" />
       </div>
-      <ul class="nav-menu">
-        <div class="nav-left">
-          <li><a href="shop" class="nav-button">Products</a></li>
-          <li><a href="outlet" class="nav-button">Outlet</a></li>
+      <div class="nav-right">
+        <a href="about-us" class="nav-button">About Us</a>
+        <div class="icon-wrapper">
+          <i class="fas fa-shopping-cart"></i>
+          <i class="fas fa-user"></i>
+          <i class="fas fa-search"></i>
         </div>
-        <li><a href="about-us" class="nav-button">About Us</a></li>
-      </ul>
+      </div>
 
       <!-- Add an SVG icon from figma -->
     </header>
@@ -36,29 +45,39 @@
 
       <h1>PUSHING THE COMFORT ZONE!</h1>
       <p>
-        Built for adventure-rain, wind, or snow. Our<br />
-        durable, mid-range jackets keep you protected on every hike,<br />
-        ski trip, and wild escape.<br />
-        Explore More. Worry Less.
+        <span class="indented"
+          >Built for adventure-rain, wind, or snow. Our</span
+        ><br />
+        <span class="indent"
+          >mid-range jackets keep you protected on every hike,</span
+        ><br />
+        <span class="indent-deeper"> trip, and wild escape. </span><br />
+        <span class="indent-deepest"> Explore More. Worry Less.</span>
       </p>
-      <a href="shop" class="shop-button">Shop Now</a>
     </main>
-
     <footer>
-      <p>free shipping</p>
-      <p>free shipping on orders over $100</p>
-      <p>quick delivery</p>
-      <p>all orders are delivered within 5 business days</p>
-      <p>contact us</p>
-      <p>123456789</p>
-      <p>Follow us on social media:</p>
-      <a href="https://www.instagram.com" target="_blank">Instagram</a>
-      <a href="https://www.facebook.com" target="_blank">Facebook</a>
-      <a
-        href="https://www.youtube.com"
-        target="https://youtu.be/kUMe1FH4CHE?si=cdD2hg9y-6SU-KSd"
-        >YouTube</a
-      >
+      <div class="footer-content">
+        <div class="footer-column">
+          <h3>Shipping</h3>
+          <p>Free shipping on orders over $100</p>
+        </div>
+        <div class="footer-column">
+          <h3>Delivery</h3>
+          <p>All orders delivered within 5 business days</p>
+        </div>
+        <div class="footer-column">
+          <h3>Contact</h3>
+          <p>123-456-7890</p>
+        </div>
+        <div class="footer-column">
+          <h3>Follow Us</h3>
+          <div class="social-links">
+            <a href="https://instagram.com"><i class="fab fa-instagram"></i></a>
+            <a href="https://facebook.com"><i class="fab fa-facebook"></i></a>
+            <a href="https://youtube.com"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+      </div>
     </footer>
   </body>
 </html>
