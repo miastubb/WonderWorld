@@ -20,7 +20,7 @@ body {
   z-index: 10;
 }
 .logo img {
-  max-height: 60px;
+  max-height: 70px;
 }
 .menu-btn {
   display: none;
@@ -146,12 +146,12 @@ footer .social-links a:hover {
   color: #ffcc00;
 }
 @media (min-width: 768px) {
-  header {
+  .header {
     padding: 1.5rem 2rem;
     text-align: left;
   }
 
-  header nav ul {
+  .header nav ul {
     flex-direction: row; 
     justify-content: flex-start;
     gap: 1rem;
@@ -171,11 +171,71 @@ footer .social-links a:hover {
    Desktop Styles (≥1024px)
 ===================== */
 @media (min-width: 1024px) {
-  header {
-    padding: 2rem 4rem;
+  .header {
+    padding: 2rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+   .menu {
+    display: flex;
+    flex-shrink: 1;
+    flex-direction: row;
+    min-width: 0;
+    flex-wrap: wrap;
+    position: static;
+    width: auto;
+    max-height: none;
+    overflow: visible;
+    background: none;
+    border-radius: 0;
+  }
+    .menu > li {
+    position: relative;
   }
 
-  header nav ul {
+  .dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: var(--header-footer-bg);
+    min-width: 220px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    border-radius: 0 0 var(--border-radius) var(--border-radius);
+    z-index: 100;
+  }
+    .dropdown:hover .dropdown-menu {
+    display: block;
+  }
+  .dropdown {
+    position: relative;
+  }
+.dropdown-menu li a {
+    padding: 12px 16px;
+    color: var(--header-footer-text);
+    border-bottom: 1px solid #444;
+    text-align: left;
+    background: none;
+  }
+
+
+  .dropdown-menu li:last-child a {
+    border-bottom: none;
+  }
+
+  .menu a {
+    border-bottom: none;
+    padding: 0 1rem;
+    color: var(--header-footer-text);
+    background: none;
+    text-align: left;
+  }
+  .menu-icon {
+    display: none;
+  }
+
+  .header nav ul {
     gap: 2rem;
   }
 
@@ -187,4 +247,195 @@ footer .social-links a:hover {
     padding: 3rem 6rem;
     text-align: left;
   }
+  .intro {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    padding: 2rem 0;
+}
+.intro-image {
+  max-width: 300px;
+  height: auto; 
+}
+.exhibition-images {
+  display: flex;
+  gap: 1rem; 
+  justify-content: center;
+
+}
+.small-img {
+  width:50%;
+  height: auto;
+}
+  #Exhibitions a {
+    display: block;
+    text-align: right;
+    margin-right: 0;
+  }
+  .class-flex {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin-top: 2rem;
+  justify-content: flex-end;
+}
+
+.class-flex a {
+  flex: 0 0 auto;
+  text-align: left;
+ 
+}
+
+.class-flex .class-img {
+  max-width: 300px;
+  height: auto;
+  border-radius: 8px;
+}
+}
+.container {
+  width: min(1100px, 92vw);
+  margin-inline: auto;
+  padding-inline: var(--spacing-md);
+}
+
+section {
+  padding-block: clamp(1.25rem, 2vw, 2rem);
+}
+
+.section-title {
+  text-align: left;
+  margin: 0 0 var(--spacing-md);
+}
+/* === Visit Us Page Layout === */
+
+/* Desktop two-column layout only on Visit Us */
+body:has(.contact-info) main {
+  display: grid;
+  gap: var(--spacing-md);
+}
+
+@media (min-width: 900px) {
+  body:has(.contact-info) main {
+    grid-template-columns: 1fr 1.2fr; /* right column (image/amenities) a bit wider */
+    grid-template-areas:
+      "contact image"
+      "map     amenities"
+      "hours   hours";
+    align-items: start;
+  }
+
+  .contact-info { grid-area: contact; }
+  .museum-image { grid-area: image; }
+  .map          { grid-area: map; }
+  .amenities    { grid-area: amenities; }
+  .hours        { grid-area: hours; }
+}
+
+/* Basic styling for Visit Us blocks */
+.contact-info,
+.amenities > div,
+.hours {
+  background: #ffffff20;
+  border-radius: var(--border-radius);
+  padding: var(--spacing-md);
+}
+
+.museum-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: var(--border-radius);
+}
+
+/* Amenities grid (3 side by side on desktop) */
+.amenities {
+  display: grid;
+  gap: var(--spacing-md);
+}
+
+@media (min-width: 700px) {
+  .amenities {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Map responsive */
+.map iframe,
+.map img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 0;
+  border-radius: var(--border-radius);
+  display: block;
+}
+/* === Visit Us Page Layout === */
+
+/* Desktop two-column layout only on Visit Us */
+body:has(.contact-info) main {
+  display: grid;
+  gap: var(--spacing-md);
+}
+
+@media (min-width: 900px) {
+  body:has(.contact-info) main {
+    grid-template-columns: 1fr 1.2fr; /* right column (image/amenities) a bit wider */
+    grid-template-areas:
+      "contact image"
+      "map     amenities"
+      "hours   hours";
+    align-items: start;
+  }
+
+  .contact-info { grid-area: contact; }
+  .museum-image { grid-area: image; }
+  .map          { grid-area: map; }
+  .amenities    { grid-area: amenities; }
+  .hours        { grid-area: hours; }
+}
+
+/* Basic styling for Visit Us blocks */
+.contact-info,
+.amenities > div,
+.hours {
+  background: #ffffff20;
+  border-radius: var(--border-radius);
+  padding: var(--spacing-md);
+}
+
+.museum-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: var(--border-radius);
+}
+
+/* Amenities grid (3 side by side on desktop) */
+.amenities {
+  display: grid;
+  gap: var(--spacing-md);
+}
+
+@media (min-width: 700px) {
+  .amenities {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Map responsive */
+.map iframe,
+.map img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 0;
+  border-radius: var(--border-radius);
+  display: block;
+}
+
+.contact-info,
+.hours,
+.amenities,
+.map,
+.museum-image {
+  display: block;   /* force them back to normal block flow */
 }
