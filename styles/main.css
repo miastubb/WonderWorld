@@ -1,442 +1,505 @@
-body {
+/* ================================
+   Base Reset & Global Styles
+================================ */
+* {
   margin: 0;
-  background-color: var(--body-bg);
-  color: var(--body-text);
-  font-size: var(--body-size);
-  font-family: 'Merriweather', sans-serif;
-  overflow-x: hidden;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
+  padding: 0;
+  box-sizing: border-box;
 }
+
+body {
+  font-family: "Merriweather", serif;
+  background-color: var(--body-bg);
+  font-size: var(--body-size);
+  line-height: 1.7;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* ================================
+   Header & Navigation (Mobile First)
+================================ */
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100%;
+  padding: var(--spacing-md);
   background-color: var(--header-footer-bg);
-  padding: 0 1rem;
+  color: var(--header-footer-text);
   position: relative;
-  z-index: 10;
+  z-index: 2000;
+  font-size: var(--nav-size);
 }
+
 .logo img {
-  max-height: 70px;
+  max-height: 80px;
 }
+
+/* Mobile menu toggle */
 .menu-btn {
   display: none;
 }
+
 .menu-icon {
+  display: block;
+  font-size: 2rem;
   cursor: pointer;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  padding: 20px;
-  user-select: none;
-  position: relative;
+  color: var(--header-footer-text);
 }
-.navicon {
-  background: #fff;
-  display: block;
-  height: 2px;
-  width: 18px;
-  position: relative;
-}
-.navicon::before,
-.navicon::after {
-  background: #fff;
-  content: "";
-  display: block;
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  transition: all 0.2s ease-out;
-}
-.navicon::before {
-  top: 5px;
-}
-.navicon::after {
-  top: -5px;
-}
-.menu {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  max-height: 0;
-  overflow: hidden;
-  background-color: var(--header-footer-bg);
-  display: flex;
+
+/* Mobile nav layout */
+.nav > ul {
+  display: none;
   flex-direction: column;
-  transition: max-height 0.3s ease-out;
+  gap: var(--spacing-sm);
+  list-style: none;
+  background: var(--header-footer-bg);
   position: absolute;
   top: 100%;
+  left: 0;
   right: 0;
-  width: 250px;
-  border-radius: 0 0 var(--border-radius) var(--border-radius);
+  padding: var(--spacing-md);
+  z-index: 1000;
 }
-.menu a {
-  display: block;
-  padding: 15px;
-  border-bottom: 1px solid #444;
+
+.nav li {
+  text-align: center;
+  padding: var(--spacing-sm) 0;
+}
+
+.nav a {
   color: var(--header-footer-text);
-  text-align: left;
   text-decoration: none;
+  font-size: var(--menu-size);
+  transition: opacity 0.2s ease;
+  display: block;
 }
-.menu-btn:checked ~ .menu {
-  max-height: 500px;
+
+.nav a:hover {
+  opacity: 0.8;
 }
-.menu-btn:checked ~ .menu-icon .navicon {
-  background: transparent;
+
+/* Dropdown (mobile collapsed) */
+.dropdown-content {
+  display: none;
+  list-style: none;
+  padding-left: var(--spacing-md);
 }
-.menu-btn:checked ~ .menu-icon .navicon::before {
-  transform: rotate(-45deg);
-  top: 0;
+
+.menu-btn:checked ~ .nav ul {
+  display: flex;
 }
-.menu-btn:checked ~ .menu-icon .navicon::after {
-  transform: rotate(45deg);
-  top: 0;
+
+.menu-btn:checked ~ .nav .dropdown-content {
+  display: block;
+  position: static;
 }
-h1 {
-  font-size: var(--h1-size);
-  margin: var(--spacing-md) 0;
+
+/* ================================
+   Main Content Layout (Mobile First)
+================================ */
+main.container {
+  width: min(1400px, 92vw);
+  margin-inline: auto;
+  padding-inline: var(--spacing-md);
+  padding-block: var(--spacing-lg);
+}
+
+.intro {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-lg);
+}
+
+section {
+  margin-bottom: var(--spacing-lg);
+}
+/*visit us*/
+.visit-grid {
+  display: grid;
+  gap: var(--spacing-lg);
+  margin-bottom: var(--spacing-lg);
+  align-items: start;
+}
+
+.visit-text h1,
+.visit-text h2 {
+  margin-block: var(--spacing-sm);
+}
+.visit-text p,
+.visit-text li {
+  margin-block: 0.35rem;
+}
+
+.museum-image img {
+  width: 100%;
+  height: auto;
+  border-radius: var(--border-radius);
+  display: block;
+}
+
+.card {
+  background: #fff;
+  padding: var(--spacing-lg);
+  border-radius: var(--border-radius);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
   text-align: center;
 }
-h2 {
-  font-size: var(--h2-size);
-  margin: var(--spacing-md) 0;
-  text-align: center;
+
+.exhibition-images {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
 }
-p {
-  text-align: center;
+
+.classes img {
+  margin-top: var(--spacing-md);
+  border-radius: var(--border-radius);
 }
-img {
-  max-width: 100%;
+
+.map iframe {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  border: 0;
+}
+/*====================
+workshops page
+====================*/
+.slime-lab {
+  display: grid;
+  gap: var(--spacing-lg);
+  align-items: center;
+  margin-block: var(--spacing-lg);
+
+}
+.slime-text {
+  text-align: center;
+  max-width: 70ch;
+  margin-inline: auto;
+  line-height: 1.8;
+
+}
+.slime-text p {
+  margin-block: 0.5rem;
+}
+.slime-image img {
+  width: 100%;
   height: auto;
   display: block;
+  border-radius: var(--border-radius);
 }
+@supports not (overflow-x: clip) {
+    .robotics { overflow-x: hidden; } }
+
+.robotics { display: grid; gap: var(--spacing-lg); }
+.robotics-image img,
+.lego.image img { width: 100%; height: auto; display: block; border-radius: var(--border-radius); }
 
 
-footer {
-  background-color: var(--header-footer-bg);
-  color: var(--header-footer-text);
-  text-align: center;
-  padding: var(--spacing-md) 0;
-  position: relative;
-  bottom: 0;
+.slime-image img
+.robotics-image img,
+.lego.image img {
   width: 100%;
-  margin-top: var(--spacing-lg);
+  height: auto;
+  display: block;
+  border-radius: var(--border-radius);
 }
 
-footer p {
-  margin: 0.5rem 0;
+/* ================================
+   Flip Card (Robotics)
+================================ */
+.robotics-card {
+  perspective: 1200px;
+  width: 100%;
+  max-width: 700px;
+  margin-inline: auto;
 }
 
-footer .social-links {
+.flip-inner {
+  position: relative;
+  width: 100%;
+  transition: transform 0.7s ease;
+  transform-style: preserve-3d;
+  overflow: hidden;
+}
+
+.flip-face {
+  position: relative;
+  backface-visibility: hidden;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: var(--spacing-lg);
+  background: #fff;
+}
+
+
+.flip-face img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.flip-face.front {
+  transform: rotateY(0deg);
+  z-index: 2;
+}
+
+.flip-face.back {
+  position: absolute;
+  inset: 0;
+  transform: rotateY(180deg);
+  z-index: 1;
+}
+
+/* Flip trigger (hover or focus) */
+@media (hover: hover) and (pointer: fine) {
+  .robotics-card:hover .flip-inner,
+  .robotics-card:focus-within .flip-inner {
+    transform: rotateY(180deg);
+  }
+}
+
+
+/* ================================
+   Footer
+================================ */
+footer {
+  background: var(--header-footer-bg);
+  color: var(--header-footer-text);
+  padding: var(--spacing-md);
+  text-align: center;
+}
+
+.footer-column {
+  max-width: 600px;
+  margin-inline: auto;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-md);
   margin-top: var(--spacing-sm);
 }
 
-footer .social-links a {
+.social-links a {
   color: var(--header-footer-text);
-  margin: 0 0.75rem;
+  font-size: 1.5rem;
   text-decoration: none;
-  font-weight: bold;
-  transition: color 0.3s ease;
 }
 
-footer .social-links a:hover {
-  color: #ffcc00;
+/* ================================
+   Breakpoints
+================================ */
+@media (hover: hover) and (pointer: fine) {
+  .robotics-card:hover .flip-inner,
+  .robotics-card:focus-within .flip-inner {
+    transform: rotateY(180deg);
+  }
 }
+@media (prefers-reduced-motion: reduce) {
+  .flip-inner { transition: none; }
+}
+
+/* Phones ≥ 480px */
+@media (min-width: 480px) {
+  
+}
+
+/* Tablets ≥ 768px */
 @media (min-width: 768px) {
-  .header {
-    padding: 1.5rem 2rem;
-    text-align: left;
-  }
+  .menu-icon,
+  .menu-btn {
+    display: none;}
 
-  .header nav ul {
-    flex-direction: row; 
-    justify-content: flex-start;
-    gap: 1rem;
-  }
-
-  img.responsive {
-    max-width: 80%;
-  }
-
-  main {
-    padding: 2rem;
-    text-align: left;
-  }
-}
-
-/* =====================
-   Desktop Styles (≥1024px)
-===================== */
-@media (min-width: 1024px) {
-  .header {
-    padding: 2rem 1rem;
+  .nav > ul {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-   .menu {
-    display: flex;
-    flex-shrink: 1;
     flex-direction: row;
-    min-width: 0;
-    flex-wrap: wrap;
+    gap: clamp(0.75rem, 2vw, 1.5rem);
     position: static;
-    width: auto;
-    max-height: none;
-    overflow: visible;
     background: none;
-    border-radius: 0;
+    padding: 0;
+    margin: 0;
   }
-    .menu > li {
+
+  .nav > li {
+    text-align: left;
+    white-space: nowrap;
+    padding: 0;
     position: relative;
   }
 
-  .dropdown-menu {
+  .dropdown {
+    position: relative;
+  }
+
+  .dropdown-content {
     display: none;
     position: absolute;
     top: 100%;
     left: 0;
     background: var(--header-footer-bg);
-    min-width: 220px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    border-radius: 0 0 var(--border-radius) var(--border-radius);
-    z-index: 100;
+    min-width: 160px;
+    padding: var(--spacing-sm) 0;
+    list-style: none;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1000;
   }
-    .dropdown:hover .dropdown-menu {
+  .dropdown-content a {
+    padding: 0.75rem 1rem;
+    display: block;
+    white-space: nowrap;
+  }
+
+  .dropdown:hover .dropdown-content {
     display: block;
   }
-  .dropdown {
-    position: relative;
-  }
-.dropdown-menu li a {
-    padding: 12px 16px;
-    color: var(--header-footer-text);
-    border-bottom: 1px solid #444;
-    text-align: left;
-    background: none;
-  }
+  .menu-btn:checked ~ .nav .dropdown-content { display: none; }
 
-
-  .dropdown-menu li:last-child a {
-    border-bottom: none;
-  }
-
-  .menu a {
-    border-bottom: none;
-    padding: 0 1rem;
-    color: var(--header-footer-text);
-    background: none;
-    text-align: left;
-  }
-  .menu-icon {
+  /* Prevent mobile dropdown trigger on desktop */
+  .menu-btn:checked ~ .nav .dropdown-content {
     display: none;
   }
-
-  .header nav ul {
-    gap: 2rem;
+/*visit us page*/
+  .exhibition-images {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    align-items: center;
+    gap: var(--spacing-md);
   }
-
-  img.responsive {
-    max-width: 60%;
+  .exhibition-side {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
   }
+  .small-img {
+   align-self: flex-end;
+   max-width: 100%;
+   margin-top: auto;
+  }
+  .visit-grid {
+    gap: var(--spacing-lg);
+  }
+  /*workshops page*/
+  .slime-lab  {
+  grid-template-columns: 1.15fr 1fr;
+  column-gap: var(--spacing-lg);
+}
+}
 
-  main {
-    padding: 3rem 6rem;
-    text-align: left;
+/* Small desktops ≥ 992px */
+@media (min-width: 992px) {
+  main.container {
+    padding-inline: var(--spacing-lg);
   }
   .intro {
-    display: flex;
+    flex-direction: row;
     align-items: center;
-    justify-content: center;
-    gap: 2rem;
-    padding: 2rem 0;
-}
-.intro-image {
-  max-width: 300px;
-  height: auto; 
-}
-.exhibition-images {
-  display: flex;
-  gap: 1rem; 
-  justify-content: center;
+    gap: 3rem;
+  }
 
-}
-.small-img {
-  width:50%;
-  height: auto;
-}
-  #Exhibitions a {
-    display: block;
-    text-align: right;
+  .intro-text {
+    flex: 1;
+  }
+
+  .intro-image {
+    flex: 1;
+  }
+  .classes {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+
+  }
+  .classes a {
+    align-self: center;
     margin-right: 0;
   }
-  .class-flex {
-  display: flex;
+  .classes img {
+    max-width: 500px;
+    display: block;
+  }
+  /*visit us page*/
+  .hours {
+    align-items: flex-start;
+
+  }
+  .visit-grid {
+    grid-template-columns: 1fr 1.6fr;
+    grid-template-areas:
+      "txt img"
+      "map hrs";
+    column-gap: var(--spacing-lg);
+    row-gap: var(--spacing-lg);
+    align-items: start;
+  }
+
+  .visit-text   { grid-area: txt; max-width: 70ch; }
+  .museum-image { grid-area: img; justify-self: end; }
+  .hours        { grid-area: hrs; justify-self: end; width: min(100%, 620px); }
+
+  .museum-image img { width: min(100%, 900px); height: auto; }
+  
+  .map {
+    max-width: 900px;
+    margin-left: 0; 
+  }
+  /*workshops page*/
+  .slime-lab {
+  grid-template-columns: 1.25fr 1fr;  
+  column-gap: var(--spacing-lg);
   align-items: center;
-  gap: 2rem;
-  margin-top: 2rem;
-  justify-content: flex-end;
 }
-
-.class-flex a {
-  flex: 0 0 auto;
+.slime-text {
   text-align: left;
- 
+  margin: 0;
+  max-width: 80ch;
 }
-
-.class-flex .class-img {
-  max-width: 300px;
-  height: auto;
-  border-radius: 8px;
-}
-}
-.container {
-  width: min(1100px, 92vw);
-  margin-inline: auto;
-  padding-inline: var(--spacing-md);
-}
-
-section {
-  padding-block: clamp(1.25rem, 2vw, 2rem);
-}
-
-.section-title {
-  text-align: left;
-  margin: 0 0 var(--spacing-md);
-}
-/* === Visit Us Page Layout === */
-
-/* Desktop two-column layout only on Visit Us */
-body:has(.contact-info) main {
-  display: grid;
-  gap: var(--spacing-md);
-}
-
-@media (min-width: 900px) {
-  body:has(.contact-info) main {
-    grid-template-columns: 1fr 1.2fr; /* right column (image/amenities) a bit wider */
-    grid-template-areas:
-      "contact image"
-      "map     amenities"
-      "hours   hours";
-    align-items: start;
+  .slime-image img {
+    width: min(100%, 800px);
+    height: auto;
   }
-
-  .contact-info { grid-area: contact; }
-  .museum-image { grid-area: image; }
-  .map          { grid-area: map; }
-  .amenities    { grid-area: amenities; }
-  .hours        { grid-area: hours; }
+  .robotics {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  align-items: center;
+  column-gap: var(--spacing-md);
+}
 }
 
-/* Basic styling for Visit Us blocks */
-.contact-info,
-.amenities > div,
-.hours {
-  background: #ffffff20;
-  border-radius: var(--border-radius);
-  padding: var(--spacing-md);
-}
-
-.museum-image img {
+/* Large desktops ≥ 1200px */
+@media (min-width: 1200px) {
+  main.container {
+    max-width: 1400px;
+    padding-inline: 2px;
+  }
+  /*visit us page*/
+  .hours {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+  }
+   .hours { width: min(100%, 660px); }
+   .map iframe {
   width: 100%;
   height: auto;
-  display: block;
-  border-radius: var(--border-radius);
-}
-
-/* Amenities grid (3 side by side on desktop) */
-.amenities {
-  display: grid;
-  gap: var(--spacing-md);
-}
-
-@media (min-width: 700px) {
-  .amenities {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-/* Map responsive */
-.map iframe,
-.map img {
-  width: 100%;
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 4 / 3; 
   border: 0;
-  border-radius: var(--border-radius);
-  display: block;
 }
-/* === Visit Us Page Layout === */
+.museum-image img { width: min(100%, 980px); }
+.hours            { width: min(100%, 660px); }
 
-/* Desktop two-column layout only on Visit Us */
-body:has(.contact-info) main {
-  display: grid;
-  gap: var(--spacing-md);
-}
+/*workshops page*/
+.slime-image img     { width: min(100%, 860px); }
+.robotics-image img  { width: min(100%, 600px); }
 
-@media (min-width: 900px) {
-  body:has(.contact-info) main {
-    grid-template-columns: 1fr 1.2fr; /* right column (image/amenities) a bit wider */
-    grid-template-areas:
-      "contact image"
-      "map     amenities"
-      "hours   hours";
-    align-items: start;
-  }
-
-  .contact-info { grid-area: contact; }
-  .museum-image { grid-area: image; }
-  .map          { grid-area: map; }
-  .amenities    { grid-area: amenities; }
-  .hours        { grid-area: hours; }
-}
-
-/* Basic styling for Visit Us blocks */
-.contact-info,
-.amenities > div,
-.hours {
-  background: #ffffff20;
-  border-radius: var(--border-radius);
-  padding: var(--spacing-md);
-}
-
-.museum-image img {
-  width: 100%;
-  height: auto;
-  display: block;
-  border-radius: var(--border-radius);
-}
-
-/* Amenities grid (3 side by side on desktop) */
-.amenities {
-  display: grid;
-  gap: var(--spacing-md);
-}
-
-@media (min-width: 700px) {
-  .amenities {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-/* Map responsive */
-.map iframe,
-.map img {
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  border: 0;
-  border-radius: var(--border-radius);
-  display: block;
-}
-
-.contact-info,
-.hours,
-.amenities,
-.map,
-.museum-image {
-  display: block;   /* force them back to normal block flow */
-  text-align: center;
 }
