@@ -306,6 +306,28 @@ workshops page
       height: auto;
       display: block;
     }
+    /*=============================
+         special events
+         ========================*/
+     .events-section {
+     display: grid;
+     gap: var(--spacing-md);
+     margin-bottom: var(--spacing-lg);
+     align-items: start;
+     padding-inline: var(--spacing-lg);
+}
+.events-text p {
+  margin-bottom: 4rem;
+  line-height: 1.8;
+}
+
+.events-image img {
+  width: 100%;
+  height: 100%;
+  border-radius: var(--border-radius);
+  display: block;
+}
+         
 
 /* ================================
    Footer
@@ -547,6 +569,27 @@ footer {
   }
   .exhibitions-main section:nth-of-type(even) > div:last-child {
     order: 1; 
+  }
+  /*special events page*/
+  .events-section {
+    grid-template-columns: 1fr 1fr;
+    column-gap: var(--spacing-lg);
+  }
+  .events-image {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    gap: var(--spacing-md);
+  }
+  .events-image img:nth-of-type(1) 
+  .events-image img:nth-of-type(2) {
+    grid-row: 1;
+  }
+  .events-image img:nth-of-type(3) {
+    grid-column: 1 / span 2;
+    grid-row: 2;
+    height: auto;
+    object-fit: contain;
   }
 }
 
