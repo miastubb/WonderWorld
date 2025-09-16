@@ -243,7 +243,6 @@ workshops page
   transform-style: preserve-3d;
 }
 
-/* Shared styles */
 .flip-face {
   backface-visibility: hidden;
   border-radius: var(--border-radius);
@@ -253,16 +252,15 @@ workshops page
   justify-content: center;
 }
 
-/* FRONT (text) */
 .flip-face.front {
   background: #fff;
   padding: var(--spacing-lg);
-  position: relative; /* stays in flow → defines card height */
+  position: relative; 
   transform: rotateY(0deg);
   z-index: 2;
 }
 
-/* BACK (image) */
+
 .flip-face.back {
   position: absolute;
   inset: 0;
@@ -283,6 +281,31 @@ workshops page
     transform: rotateY(180deg);
   }
 }
+/*================================
+    Exhibitions
+    ===========================*/
+    .exhibitions-main {
+      padding-inline: var(--spacing-lg);
+      padding-block: var(--spacing-md);
+    }
+    .exhibitions-main section {
+      display: grid;
+      gap: var(--spacing-md);
+      margin-bottom: var(--spacing-lg);
+      align-items: center;
+    }
+    .exhibitions-main section h2 {
+      margin-bottom: var(--spacing-sm);
+    }
+    .exhibitions-main section p {
+      margin-bottom: 0.5rem;
+    }
+    .exhibitions-main img {
+      border-radius: var(--border-radius);
+      width: 100%;
+      height: auto;
+      display: block;
+    }
 
 /* ================================
    Footer
@@ -511,6 +534,19 @@ footer {
     grid-template-columns: 1.15fr 1fr;
     align-items: center;
     column-gap: var(--spacing-md);
+  }
+  /*exhibitions page*/
+  .exhibitions-main section {
+    grid-template-columns: 1fr 1fr;
+  }
+  .exhibitions-main section:nth-of-type(even) {
+    grid-template-columns: 1fr 1fr;
+  }
+  .exhibitions-main section:nth-of-type(even) > div:first-child {
+    order: 2;
+  }
+  .exhibitions-main section:nth-of-type(even) > div:last-child {
+    order: 1; 
   }
 }
 
