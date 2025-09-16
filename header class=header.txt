@@ -1,0 +1,144 @@
+<header class="header">
+  <!-- Logo -->
+  <div class="logo">
+    <a href="index.html">MyLogo</a>
+  </div>
+
+  <!-- Hamburger toggle -->
+  <input type="checkbox" id="menu-btn" class="menu-btn" />
+  <label for="menu-btn" class="menu-icon">
+    <i class="fas fa-bars"></i>
+    <span class="sr-only">Menu</span>
+  </label>
+
+  <!-- Navigation -->
+  <nav class="nav">
+    <ul>
+      <li class="dropdown">
+        <a href="#">Explore</a>
+        <ul class="dropdown-content">
+          <li><a href="#">Workshops</a></li>
+          <li><a href="#">Science Shows</a></li>
+          <li><a href="#">Special Events</a></li>
+        </ul>
+      </li>
+      <li><a href="#">Exhibitions</a></li>
+      <li><a href="#">Visit Us</a></li>
+      <li><a href="#">Contact Us</a></li>
+    </ul>
+  </nav>
+</header>
+
+-------CSS--------
+/* Reset */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: sans-serif; }
+
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background: #2d327d;
+  color: #fff;
+}
+
+.logo a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.25rem;
+}
+
+/* Hide checkbox */
+.menu-btn { display: none; }
+
+/* Hamburger icon */
+.menu-icon {
+  font-size: 2rem;
+  cursor: pointer;
+  color: #fff;
+}
+
+/* Hide nav by default (mobile) */
+.nav > ul {
+  display: none;
+  flex-direction: column;
+  list-style: none;
+  background: #2d327d;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  padding: 1rem;
+  gap: 0.5rem;
+}
+
+.nav a {
+  color: #fff;
+  text-decoration: none;
+  display: block;
+  padding: 0.5rem;
+}
+
+.nav a:hover {
+  background: rgba(255,255,255,0.1);
+}
+
+/* Show menu when hamburger checked */
+.menu-btn:checked ~ .nav > ul {
+  display: flex;
+}
+
+/* Dropdown base */
+.dropdown-content {
+  display: none;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.menu-btn:checked ~ .nav .dropdown-content {
+  display: block;
+  position: static;
+  padding-left: 1rem;
+}
+
+/* Desktop view */
+@media (min-width: 768px) {
+  .menu-icon, .menu-btn { display: none; }
+
+  .nav > ul {
+    display: flex;
+    flex-direction: row;
+    position: static;
+    background: none;
+    gap: 1.5rem;
+    padding: 0;
+    margin: 0;
+  }
+
+  .nav > ul > li {
+    position: relative;
+  }
+
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #2d327d;
+    min-width: 200px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+  }
+
+  .dropdown-content a {
+    padding: 0.5rem 1rem;
+    white-space: nowrap;
+  }
+
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+}

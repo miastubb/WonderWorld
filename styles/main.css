@@ -1,0 +1,558 @@
+/* ================================
+   Base Reset & Global Styles
+================================ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Merriweather", serif;
+  background-color: var(--body-bg);
+  font-size: var(--body-size);
+  line-height: 1.7;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* ================================
+   Header & Navigation (Mobile First)
+================================ */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing-md);
+  background-color: var(--header-footer-bg);
+  color: var(--header-footer-text);
+  position: relative;
+  z-index: 2000;
+  font-size: var(--nav-size);
+}
+
+.logo img {
+  max-height: 80px;
+}
+
+/* Mobile menu toggle */
+.menu-btn {
+  display: none;
+}
+
+.menu-icon {
+  display: block;
+  font-size: 2rem;
+  cursor: pointer;
+  color: var(--header-footer-text);
+}
+
+/* Mobile nav layout */
+.nav > ul {
+  display: none;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  list-style: none;
+  background: var(--header-footer-bg);
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  padding: var(--spacing-md);
+  z-index: 1000;
+}
+
+.nav li {
+  text-align: center;
+  padding: var(--spacing-sm) 0;
+}
+
+.nav a {
+  color: var(--header-footer-text);
+  text-decoration: none;
+  font-size: var(--menu-size);
+  transition: opacity 0.2s ease;
+  display: block;
+}
+
+.nav a:hover {
+  opacity: 0.8;
+}
+
+/* Dropdown (mobile collapsed) */
+.dropdown-content {
+  display: none;
+  list-style: none;
+  padding-left: var(--spacing-md);
+}
+
+.menu-btn:checked ~ .nav ul {
+  display: flex;
+}
+
+.menu-btn:checked ~ .nav .dropdown-content {
+  display: block;
+  position: static;
+}
+
+/* ================================
+   Main Content Layout (Mobile First)
+================================ */
+main.container {
+  width: min(1400px, 92vw);
+  margin-inline: auto;
+  padding-inline: var(--spacing-md);
+  padding-block: var(--spacing-lg);
+}
+
+.intro {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-lg);
+}
+
+section {
+  margin-bottom: var(--spacing-lg);
+}
+
+/*visit us*/
+.visit-grid {
+  display: grid;
+  gap: var(--spacing-lg);
+  margin-bottom: var(--spacing-lg);
+  align-items: start;
+}
+
+.visit-text h1,
+.visit-text h2 {
+  margin-block: var(--spacing-sm);
+}
+
+.visit-text p,
+.visit-text li {
+  margin-block: 0.35rem;
+}
+
+.museum-image img {
+  width: 100%;
+  height: auto;
+  border-radius: var(--border-radius);
+  display: block;
+}
+
+.card {
+  background: #fff;
+  padding: var(--spacing-lg);
+  border-radius: var(--border-radius);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  text-align: center;
+}
+
+.exhibition-images {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.classes img {
+  margin-top: var(--spacing-md);
+  border-radius: var(--border-radius);
+}
+
+.map iframe {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  border: 0;
+}
+
+/*====================
+workshops page
+====================*/
+.slime-lab {
+  display: grid;
+  gap: var(--spacing-lg);
+  align-items: center;
+  margin-block: var(--spacing-lg);
+}
+
+.slime-text {
+  text-align: center;
+  max-width: 70ch;
+  margin-inline: auto;
+  line-height: 1.8;
+}
+
+.slime-text p {
+  margin-block: 0.5rem;
+}
+
+.slime-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: var(--border-radius);
+}
+
+@supports not (overflow-x: clip) {
+  .robotics {
+    overflow-x: hidden;
+  }
+}
+
+.robotics {
+  display: grid;
+  gap: var(--spacing-lg);
+}
+
+.robotics-image img,
+.lego.image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: var(--border-radius);
+}
+
+.slime-image img,
+.robotics-image img,
+.lego.image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: var(--border-radius);
+}
+
+/* ================================
+   Flip Card (Robotics)
+================================ */
+.robotics-card {
+  perspective: 1200px;
+  width: 100%;
+  max-width: 700px;
+  margin-inline: auto;
+}
+
+.flip-inner {
+  position: relative;
+  width: 100%;
+  transition: transform 0.7s ease;
+  transform-style: preserve-3d;
+}
+
+/* Shared styles */
+.flip-face {
+  backface-visibility: hidden;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* FRONT (text) */
+.flip-face.front {
+  background: #fff;
+  padding: var(--spacing-lg);
+  position: relative; /* stays in flow → defines card height */
+  transform: rotateY(0deg);
+  z-index: 2;
+}
+
+/* BACK (image) */
+.flip-face.back {
+  position: absolute;
+  inset: 0;
+  transform: rotateY(180deg);
+  z-index: 1;
+}
+.flip-face.back img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Flip trigger */
+@media (hover: hover) and (pointer: fine) {
+  .robotics-card:hover .flip-inner,
+  .robotics-card:focus-within .flip-inner {
+    transform: rotateY(180deg);
+  }
+}
+
+/* ================================
+   Footer
+================================ */
+footer {
+  background: var(--header-footer-bg);
+  color: var(--header-footer-text);
+  padding: var(--spacing-md);
+  text-align: center;
+}
+
+.footer-column {
+  max-width: 600px;
+  margin-inline: auto;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-md);
+  margin-top: var(--spacing-sm);
+}
+
+.social-links a {
+  color: var(--header-footer-text);
+  font-size: 1.5rem;
+  text-decoration: none;
+}
+
+/* ================================
+   Breakpoints
+================================ */
+@media (prefers-reduced-motion: reduce) {
+  .flip-inner {
+    transition: none;
+  }
+}
+
+/* Phones ≥ 480px */
+@media (min-width: 480px) {
+}
+
+/* Tablets ≥ 768px */
+@media (min-width: 768px) {
+  .menu-icon,
+  .menu-btn {
+    display: none;
+  }
+
+  .nav > ul {
+    display: flex;
+    flex-direction: row;
+    gap: clamp(0.75rem, 2vw, 1.5rem);
+    position: static;
+    background: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .nav > li {
+    text-align: left;
+    white-space: nowrap;
+    padding: 0;
+    position: relative;
+  }
+
+  .dropdown {
+    position: relative;
+  }
+
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: var(--header-footer-bg);
+    min-width: 160px;
+    padding: var(--spacing-sm) 0;
+    list-style: none;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1000;
+  }
+
+  .dropdown-content a {
+    padding: 0.75rem 1rem;
+    display: block;
+    white-space: nowrap;
+  }
+
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+
+  .menu-btn:checked ~ .nav .dropdown-content {
+    display: none;
+  }
+
+  /*visit us page*/
+  .exhibition-images {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    align-items: center;
+    gap: var(--spacing-md);
+  }
+
+  .exhibition-side {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+  }
+
+  .small-img {
+    align-self: flex-end;
+    max-width: 100%;
+    margin-top: auto;
+  }
+
+  .visit-grid {
+    gap: var(--spacing-lg);
+  }
+
+  /*workshops page*/
+  .slime-lab {
+    grid-template-columns: 1.15fr 1fr;
+    column-gap: var(--spacing-lg);
+  }
+}
+
+/* Small desktops ≥ 992px */
+@media (min-width: 992px) {
+  main.container {
+    padding-inline: var(--spacing-lg);
+  }
+
+  .intro {
+    flex-direction: row;
+    align-items: center;
+    gap: 3rem;
+  }
+
+  .intro-text {
+    flex: 1;
+  }
+
+  .intro-image {
+    flex: 1;
+  }
+
+  .classes {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+
+  .classes a {
+    align-self: center;
+    margin-right: 0;
+  }
+
+  .classes img {
+    max-width: 500px;
+    display: block;
+  }
+
+  /*visit us page*/
+  .hours {
+    align-items: flex-start;
+  }
+
+  .visit-grid {
+    grid-template-columns: 1fr 1.6fr;
+    grid-template-areas:
+      "txt img"
+      "map hrs";
+    column-gap: var(--spacing-lg);
+    row-gap: var(--spacing-lg);
+    align-items: start;
+  }
+
+  .visit-text {
+    grid-area: txt;
+    max-width: 70ch;
+  }
+
+  .museum-image {
+    grid-area: img;
+    justify-self: end;
+  }
+
+  .hours {
+    grid-area: hrs;
+    justify-self: end;
+    width: min(100%, 620px);
+  }
+
+  .museum-image img {
+    width: min(100%, 900px);
+    height: auto;
+  }
+
+  .map {
+    max-width: 900px;
+    margin-left: 0;
+  }
+
+  /*workshops page*/
+  .slime-lab {
+    grid-template-columns: 1.25fr 1fr;
+    column-gap: var(--spacing-lg);
+    align-items: center;
+  }
+
+  .slime-text {
+    text-align: left;
+    margin: 0;
+    max-width: 80ch;
+  }
+
+  .slime-image img {
+    width: min(100%, 800px);
+    height: auto;
+  }
+
+  .robotics {
+    display: grid;
+    grid-template-columns: 1.15fr 1fr;
+    align-items: center;
+    column-gap: var(--spacing-md);
+  }
+}
+
+/* Large desktops ≥ 1200px */
+@media (min-width: 1200px) {
+  main.container {
+    max-width: 1400px;
+    padding-inline: 2px;
+  }
+
+  /*visit us page*/
+  .hours {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+  }
+
+  .hours {
+    width: min(100%, 660px);
+  }
+
+  .map iframe {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 3;
+    border: 0;
+  }
+
+  .museum-image img {
+    width: min(100%, 980px);
+  }
+
+  .hours {
+    width: min(100%, 660px);
+  }
+
+  /*workshops page*/
+  .slime-image img {
+    width: min(100%, 860px);
+  }
+
+  .robotics-image img {
+    width: min(100%, 600px);
+  }
+}
