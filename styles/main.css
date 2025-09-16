@@ -119,57 +119,32 @@ section {
   margin-bottom: var(--spacing-lg);
 }
 
-/*visit us*/
-.visit-grid {
+/*==================
+    visit us
+==================*/
+.visit-main {
+  padding-inline: var(--spacing-lg);
+  padding-block: var(--spacing-md);
+}
+.visit-section {
   display: grid;
-  gap: var(--spacing-lg);
+  gap: var(--spacing-md);
   margin-bottom: var(--spacing-lg);
   align-items: start;
 }
-
-.visit-text h1,
-.visit-text h2 {
-  margin-block: var(--spacing-sm);
-}
-
-.visit-text p,
-.visit-text li {
-  margin-block: 0.35rem;
-}
-
-.museum-image img {
+.visit-section img,
+.visit-map iframe {
+  border-radius: var(--border-radius);
   width: 100%;
   height: auto;
+  display: block;
+}
+.visit-map iframe {
+  width: 100%;
+  min-height: 400px;
   border-radius: var(--border-radius);
   display: block;
 }
-
-.card {
-  background: #fff;
-  padding: var(--spacing-lg);
-  border-radius: var(--border-radius);
-  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
-  text-align: center;
-}
-
-.exhibition-images {
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-md);
-}
-
-.classes img {
-  margin-top: var(--spacing-md);
-  border-radius: var(--border-radius);
-}
-
-.map iframe {
-  width: 100%;
-  height: auto;
-  aspect-ratio: 4 / 3;
-  border: 0;
-}
-
 /*====================
 workshops page
 ====================*/
@@ -445,28 +420,27 @@ footer {
   }
 
   /*visit us page*/
-  .exhibition-images {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    align-items: center;
-    gap: var(--spacing-md);
+ .visit-section {
+    grid-template-columns: 1fr 1fr;
+    column-gap: var(--spacing-lg);
   }
+  .visit-section:first-of-type .visit-text { order: 1; }
+.visit-section:first-of-type .visit-image { order: 2; }
 
-  .exhibition-side {
-    display: flex;
-    flex-direction: column;
-    gap: var(--spacing-sm);
-  }
+.visit-section:nth-of-type(2) .visit-map { order: 1; }
+.visit-section:nth-of-type(2) .visit-details { order: 2; }
 
-  .small-img {
-    align-self: flex-end;
-    max-width: 100%;
-    margin-top: auto;
-  }
+.visit-image img {
+  width: 100%;
+  height: auto;
+  border-radius: var(--border-radius);
+}
 
-  .visit-grid {
-    gap: var(--spacing-lg);
-  }
+.visit-map iframe {
+  width: 100%;
+  height: auto;
+  border-radius: var(--border-radius);
+}
 
   /*workshops page*/
   .slime-lab {
@@ -540,45 +514,6 @@ footer {
   }
 
   /*visit us page*/
-  .hours {
-    align-items: flex-start;
-  }
-
-  .visit-grid {
-    grid-template-columns: 1fr 1.6fr;
-    grid-template-areas:
-      "txt img"
-      "map hrs";
-    column-gap: var(--spacing-lg);
-    row-gap: var(--spacing-lg);
-    align-items: start;
-  }
-
-  .visit-text {
-    grid-area: txt;
-    max-width: 70ch;
-  }
-
-  .museum-image {
-    grid-area: img;
-    justify-self: end;
-  }
-
-  .hours {
-    grid-area: hrs;
-    justify-self: end;
-    width: min(100%, 620px);
-  }
-
-  .museum-image img {
-    width: min(100%, 900px);
-    height: auto;
-  }
-
-  .map {
-    max-width: 900px;
-    margin-left: 0;
-  }
 
   /*workshops page*/
   .slime-lab {
@@ -648,30 +583,7 @@ footer {
   }
 
   /*visit us page*/
-  .hours {
-    display: flex;
-    flex-direction: column;
-    gap: var(--spacing-sm);
-  }
-
-  .hours {
-    width: min(100%, 660px);
-  }
-
-  .map iframe {
-    width: 100%;
-    height: auto;
-    aspect-ratio: 4 / 3;
-    border: 0;
-  }
-
-  .museum-image img {
-    width: min(100%, 980px);
-  }
-
-  .hours {
-    width: min(100%, 660px);
-  }
+ 
 
   /*workshops page*/
   .slime-image img {
