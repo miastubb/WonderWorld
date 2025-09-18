@@ -93,6 +93,10 @@ img {
   display: flex;
 }
 
+.dropdown > .dropbtn { 
+  display: none; 
+}
+
 .menu-btn:checked ~ .nav .dropdown-content {
   display: block;
   position: static;
@@ -423,6 +427,10 @@ footer {
 
   .dropdown {
     position: relative;
+  }
+
+  .dropdown > .dropbtn {
+    display: inline-block;
   }
 
   .dropdown-content {
