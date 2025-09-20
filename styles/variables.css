@@ -5,20 +5,19 @@
   --body-bg:#dbe0f5;
   --body-text:#000000;
 
-/*Typography*/
---h1-size:2.6rem;
---nav-size:2.0rem;
---h2-size:2.0rem;
---body-size:1.6rem;
---menu-size:1.8rem;
+  /*Typography with clamp for responsiveness*/
+  --h1-size: clamp(1.8rem, 5vw, 2.6rem);
+  --h2-size: clamp(1.4rem, 3.5vw, 2rem);
+  --body-size: clamp(1rem, 2.5vw, 1.6rem);
+  --nav-size: clamp(1.2rem, 3vw, 2rem);
+  --menu-size: clamp(1.2rem, 3.5vw, 1.8rem);
 
-/*spacing*/
---spacing-sm:0.5rem;
---spacing-md:1rem;
---spacing-lg:2rem;
+  /*spacing*/
+  --spacing-sm:0.5rem;
+  --spacing-md:1rem;
+  --spacing-lg:2rem;
 
-/*other variables*/
---border-radius:8px;
---transition:all 0.3s ease;
-
+  /*other variables*/
+  --border-radius:8px;
+  --transition:all 0.3s ease;
 }
