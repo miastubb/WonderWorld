@@ -115,6 +115,20 @@ main.container {
   padding-block: var(--spacing-md);
 }
 
+.hero-title {
+  text-align: center;
+  font-size: var(--h1-size);
+  margin-bottom: var(--spacing-lg);
+}
+.intro-image {
+  margin-top: calc(var(--spacing-lg) * 2);
+}
+.home-section img {
+  aspect-ratio: 16/9; /* or 4/3 if that matches better */
+  object-fit: cover;
+}
+
+
 .section {
   margin-bottom: var(--spacing-lg);
 }
@@ -223,6 +237,7 @@ workshops page
     overflow-x: hidden;
   }
 }
+
 
 .robotics {
   display: grid;
@@ -462,6 +477,10 @@ footer {
   .menu-btn:checked ~ .nav .dropdown-content {
     display: none;
   }
+  .intro-image {
+    margin-top: calc(var(--spacing-lg) * 3);
+  }
+
   .home-section {
     grid-template-columns: 1fr 1fr;
   }
