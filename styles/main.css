@@ -8,7 +8,7 @@
 }
 
 body {
-  font-family: "Merriweather", Georgia, 'Times New Roman', Times, serif;
+   font-family: "Merriweather", Georgia, "Times New Roman", serif;
   background-color: var(--body-bg);
   font-size: var(--body-size);
   line-height: 1.7;
