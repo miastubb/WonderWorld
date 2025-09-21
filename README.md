@@ -1,0 +1,2 @@
+Welcome to the Semester Project for Front-end Development - Community Science Museum Project. You will be designing an engaging, informative and user-friendly website for your city's new interactive science museum opening.
+An interactive science museum called the Community Science Museum is opening in your town/city. Its core target audience is primary and middle school children (ages 7-15) and families with young children. 
