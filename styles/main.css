@@ -476,7 +476,7 @@ footer {
 
   .dropdown:focus-within .dropdown-content {
   display: block;
-}  /* ensures keynoard accessibility */
+}  /* ensures functional keyboard accessibility  */
 
   .menu-btn:checked ~ .nav .dropdown-content {
     display: none;
