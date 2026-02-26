@@ -474,6 +474,10 @@ footer {
     display: block;
   }
 
+  .dropdown:focus-within .dropdown-content {
+  display: block;
+}  /* ensures keynoard accessibility */
+
   .menu-btn:checked ~ .nav .dropdown-content {
     display: none;
   }
